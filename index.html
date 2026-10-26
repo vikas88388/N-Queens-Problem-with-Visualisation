@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>N-Queens Visualizer | DAA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>♛ N-Queens Visualizer</h1><p>Backtracking • Bitmasking • Constraint Solving</p></header>
+<main>
+<section class="controls">
+<label>N: <input id="n" type="number" min="1" max="14" value="8"></label>
+<button id="solve">Find First Solution</button><button id="all">Count All Solutions</button><button id="animate">Animate Backtracking</button><button id="stop">Stop</button>
+<label>Speed <input id="speed" type="range" min="1" max="100" value="65"></label>
+</section>
+<section class="stats"><div><b>Status</b><span id="status">Ready</span></div><div><b>Solutions</b><span id="count">0</span></div><div><b>Steps</b><span id="steps">0</span></div><div><b>Time</b><span id="time">0 ms</span></div></section>
+<section class="content"><div><h2>Board</h2><div id="board"></div></div><div class="info"><h2>Algorithm</h2><p>Queens are placed row by row. A position is valid only when its column and both diagonals are free.</p><pre>solve(row):
+  if row == N: solution
+  for col in columns:
+    if safe(row,col):
+      place queen
+      solve(row+1)
+      remove queen</pre><h3>Bitmask optimisation</h3><p>Columns and diagonals are represented by bits, giving O(1) attack checks. The “Count All” button uses bitmasks.</p><p class="note">For browser responsiveness, animation is limited to N ≤ 12 and the UI input to N ≤ 14. The included Python CLI can count N up to 20.</p></div></section>
+</main><footer>Design and Analysis of Algorithms Project</footer><script src="script.js"></script>
+</body></html>
